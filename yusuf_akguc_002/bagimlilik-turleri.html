@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farkındalık ve Eğitim</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Yeni Eklenen Stiller */
+    .accordion {
+      background-color: #e7f3e7;
+      color: #083346;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: 0.4s;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .accordion:hover, .active {
+      background-color: #97cbfc;
+    }
+
+    .accordion:after {
+      content: '\002B';
+      color: #1b96ed;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 5px;
+      border: 1px solid #0f6cb9;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="bagimlilik-turleri.html">Bağımlılık Türleri</a></li>
+        <li><a href="tedavi-destek.html">Tedavi ve Destek</a></li>
+        <li><a href="farkindalik-egitim.html">Farkındalık ve Eğitim</a></li>
+        <li><a href="hikayeler-iyilesmeler.html">Hikayeler ve İyileşmeler</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="bagimlilik-turleri-section" class="content-section">
+      <h2>Bağımlılık Türleri</h2>
+      <p>Bu sayfa, sigara bağımlılığı, oyun bağımlılığı, kumar bağımlılığı, madde bağımlılığı ve alkol bağımlılığı gibi çeşitli bağımlılık türleri hakkında önemli bilgiler içermektedir. Bu bilgiler, bireylerin bağımlılıkların farkına varmalarına ve bunlarla başa çıkmalarına yardımcı olmayı amaçlar.</p>
+
+      <button class="accordion">Sigara Bağımlılığı</button>
+      <div class="panel">
+        <p>Sigara bağımlılığı, nikotin maddesinin neden olduğu bir bağımlılıktır. Sigara içmek, sağlığa ciddi zararlar verir ve bırakılması zor olabilir. Sigara bağımlılığı, fiziksel ve psikolojik bağımlılığı içerir ve bireylerin nikotin yoksunluğu yaşamasına neden olabilir.</p>
+        <p>Sigara bağımlılığından kurtulmak için profesyonel yardım, ilaç tedavileri ve davranışsal terapi gibi yöntemler kullanılabilir. Sigara bırakma programları ve destek grupları da bu süreçte faydalı olabilir.</p>
+      </div>
+
+      <button class="accordion">Oyun Bağımlılığı</button>
+      <div class="panel">
+        <p>Oyun bağımlılığı, özellikle video oyunlarına aşırı zaman harcamak ve bu nedenle günlük yaşam aktivitelerinin olumsuz etkilenmesi durumudur. Oyun bağımlılığı, sosyal ilişkiler, akademik performans ve genel sağlık üzerinde olumsuz etkiler yaratabilir.</p>
+        <p>Bu bağımlılıkla başa çıkmak için zaman yönetimi, oyun süresinin sınırlanması ve gerektiğinde profesyonel yardım alınması önemlidir. Aile desteği ve farkındalık artırıcı eğitimler de oyun bağımlılığı ile mücadelede etkilidir.</p>
+      </div>
+
+      <button class="accordion">Kumar Bağımlılığı</button>
+      <div class="panel">
+        <p>Kumar bağımlılığı, kumar oynama dürtüsünü kontrol edememe ve bu nedenle maddi, sosyal ve duygusal problemler yaşama durumudur. Kumar bağımlılığı, bireyin yaşam kalitesini ciddi şekilde düşürebilir ve borçlanma, ilişkilerde sorunlar gibi sonuçlar doğurabilir.</p>
+        <p>Kumar bağımlılığı tedavisinde, bilişsel davranışçı terapi, grup terapisi ve ilaç tedavileri kullanılabilir. Ayrıca, kumar oynama alışkanlığını değiştirmek için destek gruplarına katılmak faydalı olabilir.</p>
+      </div>
+
+      <button class="accordion">Madde Bağımlılığı</button>
+      <div class="panel">
+        <p>Madde bağımlılığı, uyuşturucu maddelere karşı gelişen fiziksel ve psikolojik bağımlılığı ifade eder. Madde bağımlılığı, bireyin sağlık, sosyal ilişkiler ve günlük yaşam üzerinde ciddi olumsuz etkiler yaratabilir.</p>
+        <p>Madde bağımlılığından kurtulmak için tıbbi tedavi, rehabilitasyon programları ve psikoterapi yöntemleri kullanılabilir. Bağımlılık tedavisinde, bireyin motivasyonunu artırmak ve desteklemek önemlidir.</p>
+      </div>
+
+      <button class="accordion">Alkol Bağımlılığı</button>
+      <div class="panel">
+        <p>Alkol bağımlılığı, aşırı ve kontrolsüz alkol tüketimi sonucunda ortaya çıkan fiziksel ve psikolojik bağımlılık durumudur. Alkol bağımlılığı, karaciğer hastalıkları, kalp sorunları ve sosyal problemler gibi birçok olumsuz etkiye neden olabilir.</p>
+        <p>Alkol bağımlılığı tedavisinde, detoksifikasyon, rehabilitasyon programları, destek grupları ve bireysel terapi gibi yöntemler kullanılabilir. Alkol bağımlılığını yenmek için profesyonel yardım almak ve aile desteği önemlidir.</p>
+      </div>
+
+      <p>Bağımlılık türleriyle ilgili daha fazla bilgi almak için uzmanlardan destek alabilir veya konuyla ilgili kitaplar ve kaynaklar üzerinden araştırmalar yapabilirsiniz.</p>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2024 Kır Zincirleri Projesi</p>
+  </footer>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kır Zincirleri Projesi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    /* Yükleniş Animasyonu */
+    #preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Genel Stil */
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #f0f0f0;
+      color: #333;
+      text-align: center;
+      margin: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, rgba(28,119,135,1) 0%, rgba(19,96,127,1) 21%, rgba(13,9,121,1) 38%, rgba(15,2,58,1) 66%, rgba(8,96,146,1) 84%, rgba(0,94,147,1) 84%, rgba(0,212,255,1) 100%);
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .carousel {
+      position: relative;
+      width: 80%;
+      height: 400px;
+      background-color: #40E0D0;
+      border: 5px solid #008B8B;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel img:first-child {
+      display: block;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    #prev {
+      left: 10px;
+    }
+
+    #next {
+      right: 10px;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1, h2 {
+      color: #00796b;
+    }
+
+    .accordion {
+      background-color: #e7f3e7;
+      color: #2c662d;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: 0.4s;
+      border-radius: 5px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .accordion:hover, .active {
+      background-color: #d4e9d4;
+    }
+
+    .accordion:after {
+      content: '\002B';
+      color: #2c662d;
+      font-weight: bold;
+      margin-left: auto;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      border-radius: 5px;
+      border: 1px solid #d4e9d4;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body onload="hidePreloader()">
+
+  <!-- Yükleniş Animasyonu -->
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="bagimlilik-turleri.html">Bağımlılık Türleri</a></li>
+        <li><a href="tedavi-destek.html">Tedavi ve Destek</a></li>
+        <li><a href="farkindalik-egitim.html">Farkındalık ve Eğitim</a></li>
+        <li><a href="hikayeler-iyilesmeler.html">Hikayeler ve İyileşmeler</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <button id="prev">&lt;</button>
+      <a href="haber1.html"><img src="img/sigara.jpg" alt="Haber 1"></a>
+      <a href="haber2.html"><img src="img/kumar.webp" alt="Haber 2"></a>
+      <a href="haber3.html"><img src="img/alkol.jpg" alt="Haber 3"></a>
+      <a href="haber4.html"><img src="img/meth.jpg" alt="Haber 4"></a>
+      <a href="haber5.html"><img src="img/oyun.jpg" alt="Haber 5"></a>
+      <button id="next">&gt;</button>
+    </div>
+  </div>
+  
+  <main>
+    <section id="welcome-section">
+      <h1>Kır Zincirleri: Bağımlılığa Karşı Yolculuk</h1>
+      <p>Projemiz, çeşitli bağımlılık türleriyle mücadele ederek bağımlılığın önlenmesine, tedavi edilmesine ve toplumda farkındalığın artırılmasına katkıda bulunmayı amaçlar.</p>
+      <p>Bu projede konumuz, bağımlılıkla mücadele etmek ve insanlara destek olmaktır. Bağımlılığın çeşitli yönlerini ele alıyor ve farkındalık yaratmaya çalışıyoruz.</p>
+      <p>Projemiz hakkında daha fazla bilgi almak ve bize ulaşmak için lütfen iletişim sayfamızı ziyaret edin.</p>
+    </section>
+    
+    <section id="institutions-section">
+      <h2>Bağımlılıkla İlgili Kurumlar</h2>
+      <div class="card">
+        <button class="accordion">
+          <img src="img/y.png" alt="Yeşilay Logo">
+          Yeşilay
+        </button>
+        <div class="panel">
+          <p>Yeşilay, bağımlılıklarla mücadelede öncü bir sivil toplum kuruluşudur. Alkol, sigara, uyuşturucu madde, kumar ve teknoloji bağımlılığı gibi çeşitli bağımlılık türleriyle mücadele eder ve toplumu bilinçlendirme çalışmaları yürütür.</p>
+        </div>
+      </div>
+      <div class="card">
+        <button class="accordion">
+          <img src="img/a.jpg" alt="Alkolikler Anonymous Logo">
+          Alkolikler Anonymous
+        </button>
+        <div class="panel">
+          <p>Alkolikler Anonymous (AA), alkol bağımlılığına sahip kişilere destek sağlayan, dünya çapında yaygın bir topluluktur. AA, bağımlılıkla mücadelede bireysel ve grup destekleri sunar.</p>
+        </div>
+      </div>
+      <div class="card">
+        <button class="accordion">
+          <img src="img/s.png" alt="Sağlık Bakanlığı Logo">
+          Sağlık Bakanlığı
+        </button>
+        <div class="panel">
+          <p>Sağlık Bakanlığı, bağımlılıkla mücadelede birçok program ve destek hizmeti sunar. Bağımlılıkla ilgili danışmanlık, tedavi ve rehabilitasyon hizmetlerini ücretsiz olarak sağlar.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2024 Kır Zincirleri Projesi</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Preloader'ı gizlemek için fonksiyon
+        function hidePreloader() {
+            var preloader = document.getElementById("preloader");
+            preloader.style.display = 'none';
+        }
+
+        // Carousel fonksiyonları
+        var carousel = document.querySelector('.carousel');
+        var images = carousel.getElementsByTagName('img');
+        var currentIndex = 0;
+
+        function showImage(index) {
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+            images[index].style.display = 'block';
+        }
+
+        document.getElementById('prev').addEventListener('click', function() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', function() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
+        });
+
+        // Başlangıçta ilk resmi göster
+        showImage(currentIndex);
+
+        // Preloader'ı gizle
+        hidePreloader();
+
+        // Accordion fonksiyonları
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    });
+  </script>
+</body>
+</html>
